@@ -14,40 +14,46 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{margin:0;background:#F6F4F0;color:#1E1C1A;-webkit-font-smoothing:antialiased}
 *{box-sizing:border-box}
 a{color:#9A7547;text-decoration:none}
 a:hover{color:#1E1C1A}
 section[id]{scroll-margin-top:72px}
 img{max-width:100%}
-@media (max-width:640px){
+@media (max-width:720px){
   .nav a:not(:last-child){display:none}
-  .hero-scrim{background:linear-gradient(180deg,rgba(246,244,240,0.55) 0%,rgba(246,244,240,0.9) 45%,rgba(246,244,240,0.97) 100%) !important}
+}
+/* Phones and portrait tablets: photo above the text instead of behind it */
+@media (max-width:640px), (orientation:portrait) and (max-width:1024px){
+  .hero{display:block !important;min-height:0 !important}
+  .hero-media{position:relative !important;height:min(44vh,520px);height:min(44svh,520px)}
+  .hero-scrim{display:none}
+  .hero-copy{max-width:680px !important;padding-top:clamp(36px,6vw,56px) !important}
 }
 </style>
 </head>
 <body>
 <div style="font-family:'Hanken Grotesk',sans-serif;background:#F6F4F0;color:#1E1C1A">
 
-<header style="position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px clamp(20px,4vw,56px);background:rgba(246,244,240,0.88);backdrop-filter:blur(10px);border-bottom:1px solid rgba(30,28,26,0.06)">
+<header style="position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px clamp(20px,4vw,56px);background:rgba(246,244,240,0.88);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(30,28,26,0.06)">
   <a href="#top" style="font-family:'Playfair Display',serif;font-size:24px;color:#1E1C1A;white-space:nowrap">Montse García</a>
   <nav class="nav" style="display:flex;align-items:center;gap:clamp(16px,3vw,40px);flex-wrap:wrap;justify-content:flex-end">
     <a href="#welcome" style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#5E5953">Welcome</a>
     <a href="#credentials" style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#5E5953">Credentials</a>
     <a href="#approach" style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#5E5953">Interests</a>
-    <a href="#connect" style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#F6F4F0;background:#1E1C1A;padding:12px 20px">Connect</a>
+    <a href="#connect" style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#F6F4F0;background:#1E1C1A;padding:14px 20px">Connect</a>
   </nav>
 </header>
 
-<section id="top" style="position:relative;min-height:min(88vh,860px);display:flex;align-items:flex-end;overflow:hidden">
-  <div style="position:absolute;inset:0">
+<section id="top" class="hero" style="position:relative;min-height:min(88vh,860px);display:flex;align-items:flex-end;overflow:hidden">
+  <div class="hero-media" style="position:absolute;inset:0">
     <img src="images/hero-bg.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
   </div>
   <div class="hero-scrim" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(246,244,240,0.96) 0%,rgba(246,244,240,0.82) 38%,rgba(246,244,240,0.15) 75%,rgba(246,244,240,0) 100%)"></div>
-  <div style="position:relative;pointer-events:none;max-width:680px;padding:clamp(80px,12vh,140px) clamp(20px,4vw,56px) clamp(56px,9vh,96px)">
-    <p style="margin:0 0 28px;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#6B655E;line-height:1.9">Pursuing a Master's in Counselling Psychology<br>Adler University</p>
-    <h1 style="margin:0;font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(44px,6.4vw,88px);line-height:1.04;letter-spacing:-0.01em;text-wrap:balance">I believe we grow through <em style="color:#A8834F">connection.</em></h1>
+  <div class="hero-copy" style="position:relative;pointer-events:none;max-width:min(680px,50vw);padding:clamp(48px,10vh,140px) clamp(20px,4vw,56px) clamp(56px,9vh,96px)">
+    <p style="margin:0 0 28px;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#6B655E;line-height:1.9">Pursuing a Master's in <span style="white-space:nowrap">Counselling Psychology</span><br>Adler University</p>
+    <h1 style="margin:0;font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(44px,min(6.4vw,10vh),88px);line-height:1.04;letter-spacing:-0.01em;text-wrap:balance">I believe we grow through <em style="color:#A8834F">connection.</em></h1>
     <p style="margin:32px 0 0;max-width:520px;font-size:clamp(17px,1.4vw,20px);line-height:1.65;color:#4F4A44;text-wrap:pretty">I hope to build a network of support between the practicum site, myself, and the clients I look forward to meeting, so each of us can find peace within.</p>
     <div style="margin-top:44px;display:flex;gap:14px;flex-wrap:wrap;pointer-events:auto">
       <a href="#welcome" style="font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:#F6F4F0;background:#1E1C1A;padding:20px 34px">Meet Montse</a>
@@ -60,17 +66,17 @@ img{max-width:100%}
     <div>
       <p style="margin:0 0 28px;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#A8834F;font-weight:600">Hola, and welcome</p>
       <h2 style="margin:0;font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(36px,4.4vw,60px);line-height:1.12;text-wrap:balance">I'm Montse — a human first, <em>person-centred counselling student.</em></h2>
-      <p style="margin:28px 0 0;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#6B655E;line-height:1.9">B.A. Psychology &amp; Social Justice · MSc Neuroscience · Somatic Experiencing Practitioner (SEP)®</p>
+      <p style="margin:28px 0 0;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#6B655E;line-height:1.9">B.A. Psychology &amp; Social Justice<br>MSc Neuroscience<br>Somatic Experiencing <span style="white-space:nowrap">Practitioner (SEP)®</span></p>
       <div style="margin-top:40px;display:flex;flex-direction:column;gap:22px;max-width:560px;font-size:18px;line-height:1.75;color:#4F4A44;text-wrap:pretty">
         <p style="margin:0">I'm deeply introspective, a dancer in life and at heart, and courageously devoted to growth.</p>
         <p style="margin:0">I love walks, connecting with loved ones and writing!</p>
         <p style="margin:0">With roots in Mexico and Spain, I carry both cultures with me, and I move between Catalan, Spanish, English and French.</p>
-        <p style="margin:0">I'm so excited to grow alongside my future clients, practicum supervisor and peers.</p>
+        <p style="margin:0">I'm so excited to grow alongside my practicum supervisor and peers, and to walk with my future clients in their process.</p>
       </div>
     </div>
     <div style="display:flex;flex-direction:column;gap:20px;max-width:520px;width:100%;justify-self:center">
       <div style="width:100%;aspect-ratio:3/4">
-        <img src="images/portrait.webp" alt="Portrait of Montse García Juanola" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:999px 999px 0 0">
+        <img src="images/portrait.webp" alt="Portrait of Montse García Juanola" style="width:100%;height:100%;object-fit:cover;object-position:64% 50%;display:block;border-radius:999px 999px 0 0">
       </div>
       <p style="margin:0;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#8A847C">Montse García Juanola</p>
     </div>
